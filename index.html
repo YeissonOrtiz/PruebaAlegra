@@ -9,8 +9,20 @@
 </head>
 <body>
   <main id="app">
+    <navbar-component></navbar-component>
     <header-component></header-component>
     <form-component></form-component>
+    <logos-component></logos-component>
+    <solutions-component>
+      <card-component 
+      v-for="solution in infoSolutions" 
+      v-bind:solution="solution">
+      </card-component>
+    </solutions-component>
+    <list-component>
+      <li v-for="item in listItems">{{ item }}</li>
+    </list-component>
+    <footer-component></footer-component>
   </main>
 </body>
 <!-- development version, includes helpful console warnings -->
