@@ -6,9 +6,9 @@ Vue.component('navbar-component', {
         },
       }
     },
-    template: `<div class="header__nav">
-    <picture class="header__nav-logo">
-      <img :src="infoHeader.srcLogo" alt="logo" class="header__nav-logo-img">
+    template: `<div class="navbar">
+    <picture class="navbar-logo">
+      <img :src="infoHeader.srcLogo" alt="logo" class="navbar-logo-img">
     </picture>
     </div>`,
   })

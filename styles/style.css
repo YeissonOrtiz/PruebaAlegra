@@ -10,7 +10,7 @@ body{
   margin: 0px;
 }
 
-.header__nav{
+.navbar{
   display: flex;
   position: fixed;
   width: 100%;
@@ -18,8 +18,13 @@ body{
   background-color: #ffffff;
 }
 
-.header__nav-logo{
+.navbar-logo{
   margin-left: 150px;
+}
+
+.navbar-logo-img{
+  max-height: 250px;
+  max-width: 300px;
 }
 
 .header{
@@ -30,11 +35,6 @@ body{
   background-size: 100%;
   background-position-y: 50px;
   background-repeat: no-repeat;
-}
-
-.header__nav-logo-img{
-  max-height: 250px;
-  max-width: 300px;
 }
 
 .header__title{
