@@ -1,0 +1,11 @@
+{
+  "name": "pruebaalegra",
+  "version": "1.0.0",
+  "description": "Este repostorio contiene el desarrollo de la prueba tecnica creada por Alegra.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
