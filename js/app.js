@@ -199,7 +199,7 @@ Vue.component('footer-component', {
         </picture>
       </div>
     </div>
-    <p class="footer_copyright">
+    <p class="footer__copyright">
       COPYRIGHT © 2020 Soluciones Alegra. S.A.S.
     </p>
     </footer>`

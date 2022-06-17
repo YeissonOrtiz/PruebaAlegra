@@ -322,7 +322,7 @@ body{
   max-width: 150px;
 }
 
-.footer_copyright{
+.footer__copyright{
   font-family: var(--font-body);
   font-size: 18px;
   color: white;
