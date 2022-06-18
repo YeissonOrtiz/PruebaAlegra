@@ -39,6 +39,8 @@ Vue.component('header-component', {
 });
 
 Vue.component('form-component', {
+  props: ['infoUser', 'showMessage'],
+
   data: function () {
     return {
       infoForm: {
@@ -47,17 +49,46 @@ Vue.component('form-component', {
         phonePlaceholder: 'Teléfono *',
         buttonText: 'AGENDAR LLAMADA',
       },
+      infoUsuario: {
+        nombre: '',
+        email: '',
+        phone: '',
+      },
     }
   },
 
-  template: `<form class="form">
+  template: `<form class="form" action="#">
     <div class="form__input-group">
-      <input type="text" class="form__input" :placeholder="infoForm.fullnamePlaceholder" required>
-      <input type="email" class="form__input" :placeholder="infoForm.emailPlaceholder" required>
-      <input type="tel" class="form__input" :placeholder="infoForm.phonePlaceholder" required>
-      <button type="submit" class="form__button">{{ infoForm.buttonText }}</button>
+      <input type="text" class="form__input" :placeholder="infoForm.fullnamePlaceholder" v-model="infoUsuario.nombre" required>
+      <input type="email" class="form__input" :placeholder="infoForm.emailPlaceholder" v-model="infoUsuario.email" required>
+      <input type="tel" class="form__input" :placeholder="infoForm.phonePlaceholder" v-model="infoUsuario.phone" required>
+      <button type="button" class="form__button" v-on:send-form="showCallMessage">{{ infoForm.buttonText }}</button>
       </div>
-  </form>`
+  </form>`,
+
+  methods:{
+    sendForm: function(){
+      this.$emit('send-form');
+    }
+  },
+
+});
+
+
+Vue.component('datosusuario-component', {
+  props: ['infoUsuario'],
+
+  data: function () {
+    return {
+    }
+  },
+
+  template: `<div class="datosusuario">
+    <p class="datosusuario__message">
+      Señor(a) {{ infoUsuario.nombre }}, en las proximas horas recibira una llamada de atención telefónica de parte de nuestro equipo.
+      Lo estaremos llamando al numero telefonico: {{ infoUsuario.telefono }}.
+    </p>
+  </div>`
 });
 
 
@@ -209,6 +240,14 @@ new Vue({
   el: '#app',
 
   data: {
+    showMessage: false,
+
+    infoUser: {
+      nombre: '',
+      telefono: '',
+      email: '',
+    },
+
     infoSolutions: {
       first_solution: {
         srcLogo: '../images/solutions/first.png',
@@ -241,12 +280,19 @@ new Vue({
         description: 'Controla cada uno de tus proyectos monitoreando tus recursos en tiempo real.'
       },
     },
+
     listItems: [
       'Crea facturas de ventas y cotizaciones de forma ágil y sencilla',
       'Crear productos y servicios con un par de clicks',
       'Consulta tu inventario, facturas y cotizaciones desde casa',
       'Registra en segundos tus facturas de proveedores y agrega los pagos que realices',
       'Gestiona tus gastos en tiempo real'
-    ]
-  }
+    ],
+  },
+
+  methods: {
+    showCallMessage: function () {
+      this.showMessage = true;
+    }
+  },
 })
