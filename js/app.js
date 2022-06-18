@@ -49,28 +49,17 @@ Vue.component('form-component', {
         phonePlaceholder: 'Teléfono *',
         buttonText: 'AGENDAR LLAMADA',
       },
-      infoUsuario: {
-        nombre: '',
-        email: '',
-        phone: '',
-      },
     }
   },
 
   template: `<form class="form" action="#">
     <div class="form__input-group">
-      <input type="text" class="form__input" :placeholder="infoForm.fullnamePlaceholder" v-model="infoUsuario.nombre" required>
-      <input type="email" class="form__input" :placeholder="infoForm.emailPlaceholder" v-model="infoUsuario.email" required>
-      <input type="tel" class="form__input" :placeholder="infoForm.phonePlaceholder" v-model="infoUsuario.phone" required>
-      <button type="button" class="form__button" v-on:send-form="showCallMessage">{{ infoForm.buttonText }}</button>
+      <input type="text" class="form__input" :placeholder="infoForm.fullnamePlaceholder" required>
+      <input type="email" class="form__input" :placeholder="infoForm.emailPlaceholder" required>
+      <input type="tel" class="form__input" :placeholder="infoForm.phonePlaceholder" required>
+      <button type="button" class="form__button">{{ infoForm.buttonText }}</button>
       </div>
-  </form>`,
-
-  methods:{
-    sendForm: function(){
-      this.$emit('send-form');
-    }
-  },
+  </form>`
 
 });
 
@@ -242,11 +231,9 @@ new Vue({
   data: {
     showMessage: false,
 
-    infoUser: {
-      nombre: '',
-      telefono: '',
-      email: '',
-    },
+    nombre: '',
+    email: '',
+    telefono: '',
 
     infoSolutions: {
       first_solution: {
