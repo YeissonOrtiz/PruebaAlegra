@@ -13,7 +13,8 @@ La landing page cumple con los siguientes requerimientos solicitados:
   -Color secundario: #707070
 
   -Similitud al diseño
-  -Visualización para tablets y dispositivos moviles
+  -Visualización para tablets y dispositivos moviles (El responsive de la landing page fue testeado desde
+  la visualización en diferentes dispositivos que trae la consola del navegador)
 
   -Header sticky
 
