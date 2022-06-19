@@ -69,7 +69,18 @@ Vue.component('form-component', {
   methods: {
     sendForm: function () {
       if(this.infoUser.fullname != '' && this.infoUser.email != '' && this.infoUser.phone != '') {
-        this.$emit('send-form', this.infoUser);
+        patternName = /^[a-zA-Z ]+$/;
+        patternPhone = /^\d{10}$/;
+        patternEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        if(patternName.test(this.infoUser.fullname) && patternPhone.test(this.infoUser.phone) && patternEmail.test(this.infoUser.email)) {
+          this.$emit('send-form', this.infoUser);
+        }
+        else {
+          alert('Formato de datos incorrecto');
+        }
+        
+      }else{
+        alert('Todos los campos son obligatorios');
       }
     }
   }
