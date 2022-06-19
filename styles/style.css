@@ -78,6 +78,7 @@ body{
   flex-wrap: wrap;
   width: 70%;
   align-items: center;
+  justify-content: center;
   margin: 10px auto;
   padding: 15px 0;
   gap: 20px;
@@ -115,6 +116,14 @@ body{
   font-size: 15px;
   font-weight: 500;
   cursor: pointer;
+}
+
+.form_message{
+  color: var(--color-secondary);
+  font-family: var(--font-body);
+  font-size: 15px;
+  text-align: center;
+  padding: 5px 10px;
 }
 
 .logos{

@@ -39,8 +39,6 @@ Vue.component('header-component', {
 });
 
 Vue.component('form-component', {
-  props: ['infoUser', 'showMessage'],
-
   data: function () {
     return {
       infoForm: {
@@ -49,37 +47,39 @@ Vue.component('form-component', {
         phonePlaceholder: 'Teléfono *',
         buttonText: 'AGENDAR LLAMADA',
       },
+
+      infoUser: {
+        fullname: '',
+        email: '',
+        phone: '',
+      },
+      showMessage: false,
     }
   },
 
   template: `<form class="form" action="#">
     <div class="form__input-group">
-      <input type="text" class="form__input" :placeholder="infoForm.fullnamePlaceholder" required>
-      <input type="email" class="form__input" :placeholder="infoForm.emailPlaceholder" required>
-      <input type="tel" class="form__input" :placeholder="infoForm.phonePlaceholder" required>
-      <button type="button" class="form__button">{{ infoForm.buttonText }}</button>
+      <input type="text" class="form__input" :placeholder="infoForm.fullnamePlaceholder" v-model="infoUser.fullname" required>
+      <input type="email" class="form__input" :placeholder="infoForm.emailPlaceholder" v-model="infoUser.email" required>
+      <input type="tel" class="form__input" :placeholder="infoForm.phonePlaceholder" v-model="infoUser.phone" required>
+      <button type="button" class="form__button" v-on:click="this.sendForm">{{ infoForm.buttonText }}</button>
       </div>
-  </form>`
+      <p class="form_message" v-if="showMessage">
+        Señor(a) {{ infoUser.fullname }}, en las proximas horas recibira una llamada de atención telefónica de parte de nuestro equipo.
+        Lo estaremos llamando al numero telefonico: {{ infoUser.phone }}. Tambien enviaremos una confirmación a su correo electrónico: {{ infoUser.email }}.
+      </p>
+  </form>`,
 
-});
-
-
-Vue.component('datosusuario-component', {
-  props: ['infoUsuario'],
-
-  data: function () {
-    return {
+  methods: {
+    sendForm: function () {
+      if(this.infoUser.fullname != '' && this.infoUser.email != '' && this.infoUser.phone != '') {
+        this.$emit('send-form', this.infoUser);
+        this.showMessage = true;
+      }
     }
-  },
+  }
 
-  template: `<div class="datosusuario">
-    <p class="datosusuario__message">
-      Señor(a) {{ infoUsuario.nombre }}, en las proximas horas recibira una llamada de atención telefónica de parte de nuestro equipo.
-      Lo estaremos llamando al numero telefonico: {{ infoUsuario.telefono }}.
-    </p>
-  </div>`
 });
-
 
 Vue.component('logos-component', {
   data: function () {
@@ -230,10 +230,6 @@ new Vue({
 
   data: {
     showMessage: false,
-
-    nombre: '',
-    email: '',
-    telefono: '',
 
     infoSolutions: {
       first_solution: {
