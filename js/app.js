@@ -2,7 +2,7 @@ Vue.component('navbar-component', {
     data: function () {
       return {
         infoHeader: {
-          srcLogo: '/images/logo_header.png',
+          srcLogo: './images/logo_header.png',
         },
       }
     },
@@ -17,8 +17,8 @@ Vue.component('header-component', {
   data: function () {
     return {
       infoHeader: {
-        srcLogo: '/images/logo_header.png',
-        srcCurve: '/images/curve_header.png',
+        srcLogo: './images/logo_header.png',
+        srcCurve: './images/curve_header.png',
         title: 'Software de e-CF certificados por la DGII',
         subtitle: '¡La solución completa para tu empresa!',
         description: 'Un software contable a la medida de tu empresa. Contabilidad automatizada, reportes inteligentes, funciones ilimitadas y un ejecutitvo de cuenta asignado.'
@@ -94,10 +94,10 @@ Vue.component('logos-component', {
   data: function () {
     return {
       infoLogos: {
-        srcLogo1: '/images/el_dia.png',
-        srcLogo2: '/images/la_nacion_dominicana.png',
-        srcLogo3: '/images/redaccion_rd.png',
-        srcLogo4: '/images/el_nuevo_diario.png',
+        srcLogo1: './images/el_dia.png',
+        srcLogo2: './images/la_nacion_dominicana.png',
+        srcLogo3: './images/redaccion_rd.png',
+        srcLogo4: './images/el_nuevo_diario.png',
       },
     }
   },
@@ -163,9 +163,9 @@ Vue.component('list-component', {
       titleTwo: 'de tu empresa',
       titleThree: 'desde cualquier lugar',
       titleFour: 'con la app móvil',
-      listLogo: '/images/listlogo.png',
-      appStore: '/images/appstore.png',
-      playStore: '/images/playstore.png',
+      listLogo: './images/listlogo.png',
+      appStore: './images/appstore.png',
+      playStore: './images/playstore.png',
     }
   },
 
@@ -196,11 +196,11 @@ Vue.component('footer-component', {
   data: function () {
     return {
       infoFooter: {
-        curve: '/images/footer/curve_footer.png',
-        logo1: '/images/footer/logo1.png',
-        logo2: '/images/footer/logo2.png',
-        logo3: '/images/footer/logo3.png',
-        logo4: '/images/footer/logo4.png',
+        curve: './images/footer/curve_footer.png',
+        logo1: './images/footer/logo1.png',
+        logo2: './images/footer/logo2.png',
+        logo3: './images/footer/logo3.png',
+        logo4: './images/footer/logo4.png',
       }
     }
   },
@@ -247,32 +247,32 @@ new Vue({
 
     infoSolutions: {
       first_solution: {
-        srcLogo: '/images/solutions/first.png',
+        srcLogo: './images/solutions/first.png',
         title: 'Ejecutivo de cuenta',
         description: 'Recibirás el apoyo de un agente especializado listo para ayudarte.'
       },
       second_solution: {
-        srcLogo: '/images/solutions/second.png',
+        srcLogo: './images/solutions/second.png',
         title: 'Facturación electrónica',
         description: 'Emite facturas electrónicas sin limites en ingresos o número de comprobantes.'
       },
       third_solution: {
-        srcLogo: '/images/solutions/third.png',
+        srcLogo: './images/solutions/third.png',
         title: 'Contabilidad automatizada',
         description: 'Ingresa tus ventas. Alegra se encarga de lo demas.'
       },
       fourth_solution: {
-        srcLogo: '/images/solutions/fourth.png',
+        srcLogo: './images/solutions/fourth.png',
         title: 'Reportes inteligentes',
         description: 'Accede a reportes contables cuando lo necesites y siempre actualizados.'
       },
       fifth_solution: {
-        srcLogo: '/images/solutions/fifth.png',
+        srcLogo: './images/solutions/fifth.png',
         title: 'Integración con otros sistemas',
         description: 'Conecta Alegra con tus plataformas favoritas en tan solo un click.'
       },
       sixth_solution: {
-        srcLogo: '/images/solutions/sixth.png',
+        srcLogo: './images/solutions/sixth.png',
         title: 'Centro de costos',
         description: 'Controla cada uno de tus proyectos monitoreando tus recursos en tiempo real.'
       },
