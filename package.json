@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/YeissonOrtiz/PruebaAlegra/issues"
   },
+  "engines": {
+    "node": "14.x"
+  },
   "homepage": "https://github.com/YeissonOrtiz/PruebaAlegra#readme"
 }
