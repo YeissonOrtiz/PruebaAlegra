@@ -53,7 +53,6 @@ Vue.component('form-component', {
         email: '',
         phone: '',
       },
-      showMessage: false,
     }
   },
 
@@ -62,23 +61,33 @@ Vue.component('form-component', {
       <input type="text" class="form__input" :placeholder="infoForm.fullnamePlaceholder" v-model="infoUser.fullname" required>
       <input type="email" class="form__input" :placeholder="infoForm.emailPlaceholder" v-model="infoUser.email" required>
       <input type="tel" class="form__input" :placeholder="infoForm.phonePlaceholder" v-model="infoUser.phone" required>
-      <button type="button" class="form__button" v-on:click="this.sendForm">{{ infoForm.buttonText }}</button>
+      <button type="button" class="form__button" v-on:click="sendForm">{{ infoForm.buttonText }}</button>
       </div>
-      <p class="form_message" v-if="showMessage">
-        Señor(a) {{ infoUser.fullname }}, en las proximas horas recibira una llamada de atención telefónica de parte de nuestro equipo.
-        Lo estaremos llamando al numero telefonico: {{ infoUser.phone }}. Tambien enviaremos una confirmación a su correo electrónico: {{ infoUser.email }}.
-      </p>
+      <slot></slot>
   </form>`,
 
   methods: {
     sendForm: function () {
       if(this.infoUser.fullname != '' && this.infoUser.email != '' && this.infoUser.phone != '') {
         this.$emit('send-form', this.infoUser);
-        this.showMessage = true;
       }
     }
   }
 
+});
+
+Vue.component('message-component', {
+  props: ['user', 'showMessage'],
+
+  data: function () {
+    return {
+    }
+  },
+
+  template: `<p class="form_message" v-if="showMessage">
+    Señor(a) {{ user.fullname }}, en las proximas horas recibira una llamada de atención telefónica de parte de nuestro equipo.
+    Lo estaremos llamando al numero telefonico: {{ user.phone }}. Tambien enviaremos una confirmación a su correo electrónico: {{ user.email }}.
+    </p>`,
 });
 
 Vue.component('logos-component', {
@@ -230,6 +239,11 @@ new Vue({
 
   data: {
     showMessage: false,
+    user: {
+      fullname: '',
+      email: '',
+      phone: '',
+    },
 
     infoSolutions: {
       first_solution: {
@@ -274,8 +288,9 @@ new Vue({
   },
 
   methods: {
-    showCallMessage: function () {
+    showCallMessage: function (data) {
       this.showMessage = true;
+      this.user = data;
     }
   },
 })

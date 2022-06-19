@@ -13,7 +13,9 @@
   <main id="app">
     <navbar-component></navbar-component>
     <header-component></header-component>
-    <form-component></form-component>
+    <form-component v-on:send-form="showCallMessage($event)">
+      <message-component v-bind:user="user" v-bind:show-message="showMessage"></message-component>
+    </form-component>
     <logos-component></logos-component>
     <solutions-component>
       <card-component 
